@@ -1,0 +1,21 @@
+{{template "base" .}}
+{{define "title"}}Home{{end}}
+{{define "main"}}
+<h2>Favourite Images</h2> {{if .Images}}
+<table> 
+<tr>
+<th>Filename</th>
+<th>Date Uploaded</th>
+<th>Description</th>
+<th>Image ID</th>
+</tr>
+{{range .Images}} <tr>
+<td>{{.Filename}}</td>
+<td>{{humanDate .Created}}</td>
+<td>{{.Description}}</td>
+<td>#{{.ID}}</td>
+</tr>
+{{end}} </table>
+{{else}}
+<p>Nothing marked as a favourite :-(</p>
+{{end}} {{end}}

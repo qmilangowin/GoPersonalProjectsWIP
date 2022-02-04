@@ -1,0 +1,32 @@
+{{template "base" .}}
+{{define "title"}}Galleries{{end}}
+{{define "main"}}
+    {{if .Images}}
+        <h2>Galleries</h2> 
+        <div class="gallery">
+        <table> 
+        <tr>
+        <th>Gallery Name</th>
+        <th>Date Uploaded</th>
+        <th>Description</th>
+        </tr>
+        <td>blah blah </td>
+        <td></td>
+        <td>blahlblah blah </td>
+        </table>
+        <table>
+        <tr>
+        <th>Gallery Name</th>
+        <th>Date Uploaded</th>
+        <th>Description</th>
+        </tr>
+        <td>Gallery Name Placeholder</td>
+        <td></td>
+        <td>Blah blah blah</td>
+        </tr>
+        </table>
+        </div>
+    {{else}}
+        <p>No Galleries here</p>
+    {{end}}
+{{end}}
