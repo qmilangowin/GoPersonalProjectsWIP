@@ -1,6 +1,5 @@
 # Links
 
-<https://go-telegram-bot-api.dev/getting-started/index.html>
 
 ### CoinGecko
 
