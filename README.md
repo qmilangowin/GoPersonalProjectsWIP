@@ -27,3 +27,8 @@ TODO: lots :-)
 ## CloudCLI
 
 See Readme in dir. Abandoned for now ....
+
+## Change log
+
+- Created repo
+- Moved projects from various folders to this new repo.
