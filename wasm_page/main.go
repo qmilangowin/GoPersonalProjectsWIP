@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/fs"
 	"log"
 	"net/http"
@@ -26,14 +27,25 @@ func (resourcesFS) AppWASM() string { return "/web/app.wasm" }
 
 type App struct {
 	app.Compo
-	name string
+}
+
+func (a *App) OnNav(ctx app.Context) {
+	fmt.Println("Navigated to page 2")
 }
 
 func (c *App) Render() app.UI {
 	return app.Div().Body(
-		app.H1().Class("GCP Dropzone Admin Portal").Text("Build a GUI with Go 2"),
-		app.P().Class("text").Text("sample"),
+		// app.H1().Class("GCP Dropzone Admin Portal").Text("Build a GUI with Go 2"),
+		// app.P().Class("text").Text("sample"),
+		app.Div().Class("ui middle aligned center aligned grid").Style("height", "100vh"),
+		app.Div().Style("max-width", "450px"),
+		app.H2().Class("ui center aligned icon header"),
+		app.I().Class("circular cloud upload icon"),
+		app.H2().Class("ui teal image header"),
+		app.Div().Class("content").Text("Log-in to your account"),
 	)
+
+	// return app.Div().Class("ui middle aligned center aligned grid").Style("height: 100vh"),
 }
 
 func main() {
@@ -44,6 +56,12 @@ func main() {
 	http.Handle("/", &app.Handler{
 		Name:        "Admin",
 		Description: "Admin portal",
+		Styles: []string{
+			"https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.0/semantic.min.css",
+		},
+		// Scripts: []string{
+		// 	"https://cdn.muicss.com/mui-0.10.3/js/mui.min.js",
+		// },
 	})
 
 	if err := http.ListenAndServe(":8080", nil); err != nil {
